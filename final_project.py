@@ -17,6 +17,7 @@ class Course:
 
 class Student:
     # TODO 3 define static variable indicates total student count
+    std_counts = 0
 
     # TODO 4 define a constructor which includes
     # student_id (unique using uuid module)
