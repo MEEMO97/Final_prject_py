@@ -20,7 +20,7 @@ class Student:
     std_counts = 0
 
     # TODO 4 define a constructor which includes
-    
+
     def __init__(self, courses=[]):
         self.student_id = uuid.uuid4()
         self.student_name = input("Enter student name")
@@ -29,6 +29,8 @@ class Student:
         self.courses_list = courses
 
     # TODO 5 define a method to enroll new course to student courses list
+    def enroll_courses(self, new_course):
+        return self.courses_list.append(new_course)
 
     # method to get_student_details as dict
     def get_student_details(self):
