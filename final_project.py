@@ -11,10 +11,10 @@ delivery_date = 23 - 8 - 2023
 class Course:
     courses = []
 
-    def __init__(self):
+    def __init__(self, name, mark):
         self.course_id = uuid.uuid4()
-        self.course_name = input("Enter course name")
-        self.course_mark = input("Enter course mark")
+        self.course_name = name
+        self.course_mark = mark
         Course.courses.append([self.course_id, self.course_name, self.course_mark])
 
 
@@ -115,7 +115,10 @@ while True:
     elif selection == 5:
         student_number = input("Enter Student Number")
         # TODO 14 ask user to enter course name and course mark then create coures object then append it to target student courses
-
+        course_name = input("Enter course name")
+        course_mark = input("Enter course mark")
+        course = Course(course_name, course_mark)
+        Course.courses.append(course)
     else:
         # TODO 15 call a function to exit the program
         pass
