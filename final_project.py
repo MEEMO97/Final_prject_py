@@ -55,21 +55,24 @@ class Student:
         mark_sum = 0
         for index, i in enumerate(self.student_courses):
             mark_sum += self.student_courses[index][2]
-        return mark_sum/len(self.student_courses)
+        return mark_sum / len(self.student_courses)
 
 
 # in Global Scope
 # TODO 8 declare empty students list
-
+students = []
 while True:
 
     # TODO 9 handle Exception for selection input
-    selection = int(input("1.Add New Student\n"
-                          "2.Delete Student\n"
-                          "3.Display Student\n"
-                          "4.Get Student Average\n"
-                          "5.Add Course to student with mark.\n"
-                          "6.Exit"))
+    try:
+        selection = int(input("1.Add New Student\n"
+                              "2.Delete Student\n"
+                              "3.Display Student\n"
+                              "4.Get Student Average\n"
+                              "5.Add Course to student with mark.\n"
+                              "6.Exit"))
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
 
     if selection == 1:
         student_number = input("Enter Student Number")
