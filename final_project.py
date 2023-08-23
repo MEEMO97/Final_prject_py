@@ -1,15 +1,19 @@
+import uuid
+
 # TODO 1 Enter your name and submission date
 name = "Mohammed Salama Attaallah"
-delivery_date = 23-8-2023
-
+delivery_date = 23 - 8 - 2023
 
 
 # TODO 2 Define Course Class and define constructor with
-# course_id (generated using uuid4) ,
-# course name (user_input) and
-# course mark
-# Solution ..........
-# # Solution ..........
+
+
+class Course:
+    def __init__(self):
+        self.course_id = uuid.uuid4()
+        self.course_name = input("Enter course name")
+        self.course_mark = input("Enter course mark")
+
 
 class Student:
     # TODO 3 define static variable indicates total student count
