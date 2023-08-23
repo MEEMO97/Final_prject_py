@@ -1,7 +1,7 @@
 import uuid
 
 # TODO 1 Enter your name and submission date
-name = "Mohammed Salama Attaallah"
+my_name = "Mohammed Salama Attaallah"
 delivery_date = 23 - 8 - 2023
 
 
@@ -24,11 +24,11 @@ class Student:
 
     # TODO 4 define a constructor which includes
 
-    def __init__(self):
+    def __init__(self, name, age, number):
         self.student_id = uuid.uuid4()
-        self.student_name = input("Enter student name")
-        self.student_age = input("Enter student age")
-        self.student_number = input("Enter student number")
+        self.student_name = name
+        self.student_age = age
+        self.student_number = number
         Student.student_counts += 1
         self.student_courses = []
 
@@ -85,7 +85,7 @@ while True:
                 print("Invalid Value")
 
         # TODO 10 create student object and append it to students list
-
+        student = Student(student_name, student_age, student_number)
         print("Student Added Successfully")
 
     elif selection == 2:
