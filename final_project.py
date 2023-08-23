@@ -99,7 +99,11 @@ while True:
     elif selection == 3:
         student_number = input("Enter Student Number")
         # TODO 12 find the target student using loops and print student detials  if exist , if not print ("Student Not Exist")
-
+        for i, x in enumerate(students):
+            if student_number == students[i][3]:
+                print(students[i])
+            else:
+                print("Student Not Exist")
     elif selection == 4:
         student_number = input("Enter Student Number")
         # TODO 13 find the target student using loops and get student average  if exist , if not print ("Student Not Exist")
