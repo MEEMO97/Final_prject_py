@@ -20,13 +20,13 @@ class Student:
     std_counts = 0
 
     # TODO 4 define a constructor which includes
-    # student_id (unique using uuid module)
-    # student_name (user input)
-    # student_age (user_inout)
-    # student_number (user_input)
-    # courses_list (List of Course Objects)
-    def __init__(self):
-        pass
+    
+    def __init__(self, courses=[]):
+        self.student_id = uuid.uuid4()
+        self.student_name = input("Enter student name")
+        self.student_age = input("Enter student age")
+        self.student_number = input("Enter student number")
+        self.courses_list = courses
 
     # TODO 5 define a method to enroll new course to student courses list
 
