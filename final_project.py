@@ -9,28 +9,35 @@ delivery_date = 23 - 8 - 2023
 
 
 class Course:
+    courses = []
+
     def __init__(self):
         self.course_id = uuid.uuid4()
         self.course_name = input("Enter course name")
         self.course_mark = input("Enter course mark")
+        Course.courses.append([self.course_id, self.course_name, self.course_mark])
 
 
 class Student:
     # TODO 3 define static variable indicates total student count
-    std_counts = 0
+    student_counts = 0
 
     # TODO 4 define a constructor which includes
 
-    def __init__(self, courses=[]):
+    def __init__(self):
         self.student_id = uuid.uuid4()
         self.student_name = input("Enter student name")
         self.student_age = input("Enter student age")
         self.student_number = input("Enter student number")
-        self.courses_list = courses
+        Student.student_counts += 1
+        self.student_courses = []
 
     # TODO 5 define a method to enroll new course to student courses list
-    def enroll_courses(self, new_course):
-        return self.courses_list.append(new_course)
+    def enroll_courses(self, course_id):
+        ids = [i for i, n, m in Course.courses]
+        for index, x in enumerate(ids):
+            if course_id == x:
+                return self.student_courses.append(Course.courses[index])
 
     # method to get_student_details as dict
     def get_student_details(self):
