@@ -91,7 +91,11 @@ while True:
     elif selection == 2:
         student_number = input("Enter Student Number")
         # TODO 11 find the target student using loops and delete it if exist , if not print ("Student Not Exist")
-
+        for i, x in enumerate(students):
+            if student_number == students[i][3]:
+                students.pop(i)
+            else:
+                print("Student Not Exist")
     elif selection == 3:
         student_number = input("Enter Student Number")
         # TODO 12 find the target student using loops and print student detials  if exist , if not print ("Student Not Exist")
