@@ -74,6 +74,7 @@ while True:
         print("Invalid input. Please enter a valid number.")
 
     if selection == 1:
+        print("Sorry to see you go, We'd love to hear why ?")
         student_number = input("Enter Student Number")
         student_name = input("Enter Student Name")
         while True:
@@ -89,6 +90,7 @@ while True:
         print("Student Added Successfully")
         print("=" * 50)
     elif selection == 2:
+        print("The operation failed successfully")
         student_number = input("Enter Student Number")
         # TODO 11 find the target student using loops and delete it if exist , if not print ("Student Not Exist")
         if students:
@@ -105,6 +107,7 @@ while True:
             print("Student Not Exist")
             print("=" * 50)
     elif selection == 3:
+        print("You haven't received any error messages recently, so here is a random one because we care about you")
         student_number = input("Enter Student Number")
         # TODO 12 find the target student using loops and print student detials  if exist , if not print ("Student Not Exist")
         if students:
@@ -118,6 +121,7 @@ while True:
             print("Student Not Exist")
             print("=" * 50)
     elif selection == 4:
+        print("An error occurred while reporting another error,please shut down this program and do not come back later")
         student_number = input("Enter Student Number")
         # TODO 13 find the target student using loops and get student average  if exist , if not print ("Student Not Exist")
         if students:
@@ -131,6 +135,7 @@ while True:
             print("Student Not Exist")
             print("=" * 50)
     elif selection == 5:
+        print("Windows has detected that you have moved your mouse,please restart your computer")
         student_number = input("Enter Student Number")
         # TODO 14 ask user to enter course name and course mark then create coures object then append it to target student courses
         if students:
@@ -146,7 +151,8 @@ while True:
             print("=" * 50)
     else:
         # TODO 15 call a function to exit the program
-        print("Sorry to see you go, We'd love to hear why ?")
-        print("The operation failed successfully")
-        print("You didn't get any error messages recently, so here is a random one")
+        print("You will receive an error message in the future,Give me the error message :")
+        input("1.Now        2.After 5 days           3.Everyday for the rest of my life")
+        input("Our system has noticed that you are trying to do something useful,for this you need\n a proper computer ,better personality, a mouse and keyboard. \nAsk for help?")
+        print("Github indicates illegal activities, Github must be closed !! ")
         exit()
