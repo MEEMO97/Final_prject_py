@@ -52,10 +52,9 @@ class Student:
     # method to get student_average as a value
     def get_student_average(self):
         # TODO 7 return the student average
-        mark_sum = 0
-        for index, i in enumerate(self.student_courses):
-            mark_sum += self.student_courses[index][2]
-        return mark_sum / len(self.student_courses)
+        if len(self.student_courses) > 0:
+            mark_sum = sum(m for i, n, m in self.student_courses)
+            return mark_sum / len(self.student_courses)
 
 
 # in Global Scope
@@ -70,7 +69,7 @@ while True:
                               "3.Display Student\n"
                               "4.Get Student Average\n"
                               "5.Add Course to student with mark.\n"
-                              "6.Exit"))
+                              "6.Exit\n"))
     except ValueError:
         print("Invalid input. Please enter a valid number.")
 
@@ -86,39 +85,68 @@ while True:
 
         # TODO 10 create student object and append it to students list
         student = Student(student_name, student_age, student_number)
+        students.append(student)
         print("Student Added Successfully")
-
+        print("=" * 50)
     elif selection == 2:
         student_number = input("Enter Student Number")
         # TODO 11 find the target student using loops and delete it if exist , if not print ("Student Not Exist")
-        for i, x in enumerate(students):
-            if student_number == students[i][3]:
-                students.pop(i)
-            else:
-                print("Student Not Exist")
+        if students:
+            for i in students:
+                if i.student_number == student_number:
+                    students.remove(i)
+                    print("Student deleted successfully")
+                    print("=" * 50)
+                else:
+                    print("Student Not Exist")
+                    print("=" * 50)
+
+        else:
+            print("Student Not Exist")
+            print("=" * 50)
     elif selection == 3:
         student_number = input("Enter Student Number")
         # TODO 12 find the target student using loops and print student detials  if exist , if not print ("Student Not Exist")
-        for i, x in enumerate(students):
-            if student_number == students[i][3]:
-                print(students[i])
-            else:
-                print("Student Not Exist")
+        if students:
+            for i in students:
+                if i.student_number == student_number:
+                    print(i.get_student_details())
+                else:
+                    print("Student Not Exist")
+                    print("=" * 50)
+        else:
+            print("Student Not Exist")
+            print("=" * 50)
     elif selection == 4:
         student_number = input("Enter Student Number")
         # TODO 13 find the target student using loops and get student average  if exist , if not print ("Student Not Exist")
-        for i, x in enumerate(students):
-            if student_number == students[i][3]:
-                Student.get_student_average(students[i])
-            else:
-                print("Student Not Exist")
+        if students:
+            for i in students:
+                if i.student_number == student_number:
+                    print(i.get_student_average())
+                else:
+                    print("Student Not Exist")
+                    print("=" * 50)
+        else:
+            print("Student Not Exist")
+            print("=" * 50)
     elif selection == 5:
         student_number = input("Enter Student Number")
         # TODO 14 ask user to enter course name and course mark then create coures object then append it to target student courses
-        course_name = input("Enter course name")
-        course_mark = input("Enter course mark")
-        course = Course(course_name, course_mark)
-        Course.courses.append(course)
+        if students:
+            for i in students:
+                if i.student_number == student_number:
+                    course_name = input("Enter course name: ")
+                    course_mark = float(input("Enter course mark: "))
+                    course = Course(course_name, course_mark)
+                    student.enroll_courses(course.course_id)
+
+        else:
+            print("Student Not Exist")
+            print("=" * 50)
     else:
         # TODO 15 call a function to exit the program
-        pass
+        print("Sorry to see you go, We'd love to hear why ?")
+        print("The operation failed successfully")
+        print("You didn't get any error messages recently, so here is a random one")
+        exit()
